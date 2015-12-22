@@ -35,6 +35,8 @@ def sujay(code, language):
 	print 'Compiling code..'
 	r = api.compile()
 	print r.__dict__
+	if r.__dict__.get('compile_status')!='OK':
+		return r.__dict__.get('compile_status')
 
 	print '\nRunning code...'
 	r = api.run()
