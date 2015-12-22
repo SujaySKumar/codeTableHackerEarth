@@ -1,12 +1,66 @@
 <html>
 <head>
 <body>
-<h1>Inside initial template</h1>
+<h1>Sujay CodeTable</h1>
 <form action="{% url 'initial:submitCode' %}" method="post">
 
-<input type="text" name="code"/>
+<!--<input type="text" name="code"/>-->
+<textarea name="code" cols="40" rows="10"></textarea>
+<br>
+<input type="radio" name="lang" value="C" checked>C (gcc 4.8.1)
+<br>
+<input type="radio" name="lang" value="CPP">C++ (g++ 4.8.1)
+<br>
+<input type="radio" name="lang" value="CLOJURE">Clojure (clojure 1.1.0)
+<br>
+<input type="radio" name="lang" value="CSS">CSS
+<br>
+<input type="radio" name="lang" value="CSHARP">C# (mono 2.10.8.1)
+<br>
+<input type="radio" name="lang" value="GO">Go (go 1.4.1)
+<br>
+<input type="radio" name="lang" value="HASKELL">Haskell (ghc 7.4.1)
+<br>
+<input type="radio" name="lang" value="HTML">HTML
+<br>
+<input type="radio" name="lang" value="JAVA">Java (openjdk 1.7.0_09)
+<br>
+<input type="radio" name="lang" value="JAVASCRIPT">JavaScript (Rhino 1.7)
+<br>
+<input type="radio" name="lang" value="JAVASCRIPT_NODE">JavaScript (Node.js 0.6.12)
+<br>
+<input type="radio" name="lang" value="LISP">Lisp (csc 4.7.0)
+<br>
+<input type="radio" name="lang" value="OBJECTIVEC">Objective-C (clang 3.3)
+<br>
+<input type="radio" name="lang" value="PASCAL">Pascal (fpc 2.4.4)
+<br>
+<input type="radio" name="lang" value="PERL">Perl (perl 5.14.2)
+<br>
+<input type="radio" name="lang" value="PHP">PHP (php 5.3.10)
+<br>
+<input type="radio" name="lang" value="PYTHON">Python (python 2.7.3)
+<br>
+<input type="radio" name="lang" value="RUBY">Ruby (ruby 2.1.1)
+<br>
+<input type="radio" name="lang" value="R">R (RScript 2.14.1)
+<br>
+<input type="radio" name="lang" value="RUST">Rust (rustc 1.4.0)
+<br>
+<input type="radio" name="lang" value="SCALA">Scala (scalac 2.9.1)
+<br>
+<input type="radio" name="lang" value="TEXTFILE">Text
+<br>
+
+
 <input type="submit"/>
 </form>
+
+{% if output %}
+    <h2>{{ output }}</h2>
+{% else %}
+    <p>No output received.</p>
+{% endif %}
 </body>
 </head>
 </html>
