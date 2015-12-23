@@ -17,7 +17,7 @@ def index(request):
 	
 	return HttpResponse(template.render())
 
-def sujay(code, language):
+def sujay(code, language, inp=None):
 	client_secret = '0a7f0101e5cc06e4417a3addeb76164680ac83a4'
 
 	#source = open('test_source.py', 'r').read()
@@ -28,7 +28,7 @@ def sujay(code, language):
 	html = 0
 	params = RunAPIParameters(
         client_secret=client_secret, source=source,
-        lang=lang, compressed=compressed, html=html)
+        lang=lang, compressed=compressed, html=html, program_input=inp)
 
 	api = HackerEarthAPI(params)
 
@@ -52,8 +52,14 @@ def sujay(code, language):
 def submitCode(request):
 	code = request.POST['code']
 	lang = request.POST['lang']
+	inp = ''
+	if request.POST.get('checkInput'):
+		inp = request.POST['customInput']
+		print "INside Herr"
+	print inp
+	print type(inp)
 	#print code
-	output = sujay(code, lang)
+	output = sujay(code, lang, str(inp))
 	template = loader.get_template('initial/index.html')
 	context = RequestContext(request, {
         'output': output,

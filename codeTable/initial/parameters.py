@@ -110,6 +110,8 @@ class RunAPIParameters(CompileAPIParameters):
         self.time_limit = min(time_limit, settings.RUN_TIME_UPPER_LIMIT)
         self.memory_limit = min(memory_limit, settings.MEMORY_UPPER_LIMIT)
         print self.memory_limit
+	#Why isn't the program_input taken into consideration man?
+	self.input = program_input
 
     def _build_params_dict(self):
         params = super(RunAPIParameters, self)._build_params_dict()
@@ -118,7 +120,8 @@ class RunAPIParameters(CompileAPIParameters):
             'html': self.html,
             'compiled': self.compiled,
             'time_limit': self.time_limit,
-            'memory_limit': self.memory_limit
+            'memory_limit': self.memory_limit,
+		'input': self.input
             })
         return params
 
